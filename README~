@@ -1,0 +1,21 @@
+CSE 521 Project 1 by team G2: Puneet Arora, Stacey Askey, Prahasaran Raja
+
+Compile the code via make, which creates an executable called myhttpd.
+
+You can use the executable by typing
+./myhttpd
+followed by the desired options.
+Ex. ./myhttpd -s SJF -t 50
+
+To create a connection, type
+telnet server port
+Ex. telnet timberlake.cse.buffalo.edu 6160
+default port is 8080.
+
+Once you have connected to the server, you can send either a GET or HEAD request.
+Ex. GET /index.html HTTP/1.0
+HEAD /index.html HTTP/1.0
+
+To get usage information type 
+./myhttpd -h
+

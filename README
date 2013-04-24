@@ -1,0 +1,49 @@
+CSE 521 Project 1 by team G2: Puneet Arora, Stacey Askey, Prahasaran Raja
+
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+IMPORTANT:
+
+The server was tested and verified primarily using TELNET and Mozilla firefox 5.0. This program perfectly implements the core functionalities of the project such as socket programming, multithreading, threadpool synchronization, queueing, scheduling and avoiding race conditions in the ready queue. 
+
+This server does not serve requests for directories. It serves only file request. i.e. This does not implement these two functionalities required in the project:
+
+--If the request was for a directory and the directory does not contain a file named "index.html", then myhttpd will generate a directory index, listing the contents of the directory in alphanumeric order. Files starting with a "." are ignored.
+
+--If the request begins with a ‘~’, then the following string up to the first slash is translated into that
+user’s myhttpd directory (ie / home/<user>/myhttpd/).
+
+Therefore, if the request is for a file named "index.html" in the directory "/home/<user>/myhttpd", then using "-r" option, set the root directory to
+"/home/<user>/myhttpd" and request GET /index.html or HEAD /index.html. Same for log files. 
+
+Note: The program does not automatically get user name, please mention in manually in the root directory path using "-r" option.
+
+
+It also does not convert client address into IPv4 format and also might have some issues with last modified time of a file.(Works sometimes though!)
+
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+
+COMPILATION:
+
+Untar the package. cd into the directory where the files are untarred. Compile the code by typing "make", which creates an executable called myhttpd.
+Gives some minor warnings, please ignore those!
+
+
+You can use the executable by typing
+./myhttpd
+followed by the desired options mentioned in the project handout.
+Ex. ./myhttpd -s SJF -t 50
+
+To create a connection, type
+telnet server port
+Ex. telnet timberlake.cse.buffalo.edu 6160
+default port is 8080.
+
+Once you have connected to the server, you can send either a GET or HEAD request.
+Ex. GET /index.html HTTP/1.0
+HEAD /index.html HTTP/1.0
+
+To get usage information type 
+./myhttpd -h
+
